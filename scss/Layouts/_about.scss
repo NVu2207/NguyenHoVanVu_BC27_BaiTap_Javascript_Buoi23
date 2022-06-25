@@ -1,0 +1,48 @@
+.about {
+  background-image: url(../img/Violet_top_left_wave.png);
+  @include background(bottom);
+  padding: 10px 0;
+  &::before {
+    content: "";
+    background-image: url(../img/yellow_top_wave_01.png);
+    @include background(top);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+  .row {
+    @include displayFlex;
+
+    .col:nth-child(1) {
+      h2 {
+        @include styleText(18px, 600, $color-purple);
+      }
+
+      h3 {
+        @include styleText(70px, 600, $color-black);
+      }
+    }
+  }
+}
+@include responsive("extra-large") {
+  .about {
+    .row {
+      .col:nth-child(1) {
+        h3 {
+          font-size: 60px;
+        }
+      }
+    }
+  }
+}
+
+@include responsive("large") {
+  .about {
+    .row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

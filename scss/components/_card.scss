@@ -1,0 +1,39 @@
+.card {
+  background-color: $color-white;
+  text-align: center;
+  transition: all 0.5s;
+  border-radius: 8px;
+  overflow: hidden;
+  .img {
+    overflow: hidden;
+    img {
+      display: block;
+      width: 100%;
+      transition: all 1.5s;
+    }
+
+    img:hover {
+      transform: scale(1.04);
+    }
+  }
+  .info {
+    padding: 0 15px 25px;
+    h3 {
+      @include styleText(15px, 500, $color-purple);
+      margin-top: 25px;
+    }
+
+    h1 {
+      @include styleText(25px, 700, $color-black);
+      margin-top: 10px;
+    }
+
+    p {
+      @include styleText(15px, 500, $color-black);
+      margin-top: 10px;
+    }
+  }
+  &:hover {
+    box-shadow: -3px 15px 31px -6px rgba(0, 0, 0, 0.3);
+  }
+}

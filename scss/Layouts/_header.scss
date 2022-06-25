@@ -1,0 +1,166 @@
+.header {
+  width: 100%;
+  z-index: 10;
+  transition: all 0.5s;
+  padding: 5px 0 10px;
+  .verticalheader {
+    display: none;
+    .verticalheader-item {
+      display: flex;
+      .bars {
+        width: 20px;
+        height: 20px;
+        position: relative;
+        margin: 20px 10px 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        a {
+          height: 1px;
+          background-color: $color-black;
+        }
+        &:hover a {
+          background-color: $color-purple;
+        }
+        &::before {
+          content: "";
+          width: 20px;
+          height: 1px;
+          background-color: $color-black;
+          position: absolute;
+          top: -8px;
+          left: 0;
+          transition: all 0.3s;
+        }
+        &::after {
+          content: "";
+          width: 20px;
+          height: 1px;
+          background-color: $color-black;
+          position: absolute;
+          top: 8px;
+          left: 0;
+          transition: all 0.3s;
+        }
+        &:hover::before {
+          background-color: $color-purple;
+          top: -12px;
+        }
+        &:hover::after {
+          background-color: $color-purple;
+          top: 12px;
+        }
+      }
+      .verticallogo {
+        img {
+          display: block;
+          width: 50%;
+        }
+      }
+    }
+  }
+  .innerheader {
+    @include displayFlex;
+
+    .content {
+      @include displayFlex;
+
+      .menu {
+        margin-right: 50px;
+        ul {
+          @include displayFlex;
+          li {
+            position: relative;
+            margin-right: 50px;
+            a {
+              @include styleText(15px, 700, $color-black);
+              &:hover {
+                color: $color-purple;
+              }
+            }
+            &::after {
+              @include noteMenu;
+            }
+            &:nth-child(2)::after {
+              transform: scale(0.9);
+            }
+            &:hover::after {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+
+      .header-contact {
+        @include displayFlex;
+        .icon {
+          @include displayFlex;
+          i {
+            @include icon($color-black, 12px);
+            margin-left: 10px;
+            &:hover {
+              color: $color-purple;
+            }
+          }
+        }
+      }
+    }
+    #closeMenu {
+      display: none;
+      cursor: pointer;
+      position: absolute;
+      @include styleText(40px, 600, $color-black);
+      right: -40px;
+      top: 0;
+      &:hover {
+        color: $color-purple;
+      }
+    }
+  }
+}
+
+@include responsive("extra-large") {
+  .header {
+    position: relative;
+    .verticalheader {
+      display: block;
+      position: relative;
+      background-color: $color-white;
+      top: -5px;
+    }
+    .innerheader {
+      background-color: $color-white;
+      justify-content: flex-start;
+      flex-direction: column;
+      position: fixed;
+      height: 100%;
+      left: -250px;
+      top: 0;
+      transition: all 0.5s;
+      .content {
+        flex-direction: column;
+        .menu {
+          margin-left: 20px;
+          margin-right: 0;
+          ul {
+            flex-direction: column;
+            li {
+              padding: 20px 0;
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+        .header-contact {
+          flex-direction: column;
+          margin-top: 20px;
+          margin-right: 20px;
+        }
+      }
+      #closeMenu {
+        display: block;
+      }
+    }
+  }
+}

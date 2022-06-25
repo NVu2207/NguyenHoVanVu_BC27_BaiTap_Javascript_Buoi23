@@ -1,0 +1,102 @@
+.footer {
+  background-image: url(../img/footer_background.jpg);
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 120px 0 250px;
+    .col {
+      width: calc(100% / 4);
+      .item {
+        width: 100%;
+        padding: 0 40px;
+        h2 {
+          @include styleText(25px, 700, $color-white);
+          margin-bottom: 25px;
+        }
+      }
+      &:nth-child(1) {
+        ul {
+          li {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: 15px;
+            @include styleText(15px, 500, $color-white);
+            margin-bottom: 10px;
+          }
+        }
+
+        .icon {
+          display: flex;
+          margin-top: 25px;
+          i {
+            @include icon($color-white, 15px);
+            margin-right: 10px;
+            &:hover {
+              color: $color-black;
+            }
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        @include menuFooter;
+      }
+
+      &:nth-child(3) {
+        @include menuFooter;
+      }
+
+      &:nth-child(4) {
+        input {
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.5s;
+          background: transparent;
+          @include styleText(15px, 500, $color-white);
+          padding: 15px;
+          outline: none;
+          text-align: center;
+          border-radius: 20px;
+          margin-bottom: 10px;
+          &::placeholder {
+            @include styleText(15px, 500, $color-white);
+          }
+          &:focus {
+            border: 1px solid rgba(255, 255, 255, 1);
+          }
+        }
+        .button {
+          background-color: $color-white;
+          color: $color-black;
+          width: 100%;
+          border-color: $color-white;
+          cursor: pointer;
+          &:hover {
+            background-color: $color-purple;
+            color: $color-white;
+          }
+          &::after {
+            background-color: $color-purple;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include responsive("large") {
+  .footer {
+    .row {
+      .col {
+        width: 50%;
+        margin-bottom: 50px;
+        &:nth-child(4) {
+          input {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

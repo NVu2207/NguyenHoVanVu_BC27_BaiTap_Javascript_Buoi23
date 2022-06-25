@@ -1,0 +1,32 @@
+.button {
+  @include styleText(15px, 500, $color-white);
+  z-index: 1;
+  position: relative;
+  background-color: $color-purple;
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 1px solid $color-purple;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  &::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: scale(0, 0);
+    background-color: $color-white;
+
+    transition: all 0.3s ease;
+    display: block;
+  }
+  &:hover {
+    background-color: $color-white;
+    color: $color-purple;
+  }
+  &:hover::after {
+    transform: scale(1, 1);
+  }
+}

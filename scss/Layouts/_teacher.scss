@@ -1,0 +1,34 @@
+.teacher {
+  background-color: $background-color;
+  position: relative;
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -20px;
+    .col {
+      width: calc(100% / 4);
+      padding: 0 20px;
+      margin-bottom: 40px;
+      z-index: 6;
+    }
+  }
+  &::after {
+    content: "";
+    background-image: url(../img/Wave_White_bottom_right_shape_01.png);
+    @include background(bottom);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+}
+
+@include responsive("large") {
+  .teacher {
+    .row {
+      .col {
+        width: calc(100% / 2);
+      }
+    }
+  }
+}

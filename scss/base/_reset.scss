@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+ul li {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@include responsive("extra-large") {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@include responsive("large") {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@include responsive("medium") {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@include responsive("small") {
+  .container {
+    max-width: 540px;
+  }
+}

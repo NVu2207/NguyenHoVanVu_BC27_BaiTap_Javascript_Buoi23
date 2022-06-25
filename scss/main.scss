@@ -1,0 +1,13 @@
+@import "./Helpers/variables";
+@import "./Helpers/mixin";
+
+@import "./base/reset";
+
+@import "./components/button";
+@import "./components/card";
+
+@import "./Layouts/header";
+@import "./Layouts/about";
+@import "./Layouts/teacher";
+@import "./Layouts/course";
+@import "./Layouts/footer";
